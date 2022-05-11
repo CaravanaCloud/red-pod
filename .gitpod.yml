@@ -1,0 +1,23 @@
+# gitpod.io/#github.com/CaravanaCloud/red-pod
+image:
+  file: .gitpod.Dockerfile
+
+
+ports:
+  - port: 5000
+  - port: 8080
+  - port: 8888
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-dependency
+    - vscjava.vscode-java-test
+    - vscjava.vscode-maven
+    - redhat.java
+    - redhat.fabric8-analytics
+    - ms-azuretools.vscode-docker
+    - esbenp.prettier-vscode
+#    - GitHub.copilot
+
