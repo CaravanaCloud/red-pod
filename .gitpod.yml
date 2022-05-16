@@ -5,8 +5,16 @@ image:
 
 ports:
   - port: 5000
+    onOpen: ignore
+    visibility: public
+
   - port: 8080
+    onOpen: ignore
+    visibility: public
+
   - port: 8888
+    onOpen: ignore
+    visibility: public
 
 vscode:
   extensions:
