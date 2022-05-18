@@ -11,10 +11,8 @@ tasks:
         -e MYSQL_ROOT_PASSWORD=Masterkey123 \
         -e MYSQL_DATABASE=redpod\
         mysql:8
-      gp sync-done mysql-up
 
   - name: Keycloak
-    init: gp sync-await mysql-up
     command: |
       docker run --rm --name keycloak \
         --network=host \
