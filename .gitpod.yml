@@ -22,6 +22,7 @@ tasks:
         -e KC_DB_URL=jdbc:mysql://127.0.0.1:3306/redpod \
         -e KC_DB_USERNAME=root \
         -e KC_DB_PASSWORD=Masterkey123 \
+        -e KC_HOSTNAME=${HOSTNAME}.${GITPOD_WORKSPACE_CLUSTER_HOST} \
         -e KC_HOSTNAME_STRICT=true \
         -e KC_HOSTNAME_STRICT_BACKCHANNEL=true \
         -e KC_LOG_LEVEL=info \
