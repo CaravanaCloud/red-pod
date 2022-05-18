@@ -5,7 +5,12 @@ image:
 tasks:
   - name: MySQL
     command: |
-      docker run -d --rm --name mysql --network=host -e MYSQL_ROOT_PASSWORD=Masterkey123 -e MYSQL_DATABASE=piggybank mysql:8
+      docker run -d --rm \
+        --name mysql \
+        --network=host \
+        -e MYSQL_ROOT_PASSWORD=Masterkey123 \
+        -e MYSQL_DATABASE=redpod\
+        mysql:8
       gp sync-done mysql-up
 
   - name: Keycloak
@@ -16,7 +21,7 @@ tasks:
         -e KEYCLOAK_ADMIN=admin \
         -e KEYCLOAK_ADMIN_PASSWORD=Masterkey123 \
         -e KC_DB=mysql \
-        -e KC_DB_URL=jdbc:mysql://127.0.0.1:3306/piggybank \
+        -e KC_DB_URL=jdbc:mysql://127.0.0.1:3306/redpod \
         -e KC_DB_USERNAME=root \
         -e KC_DB_PASSWORD=Masterkey123 \
         -e KC_HOSTNAME_STRICT=true \
