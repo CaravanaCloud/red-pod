@@ -37,16 +37,26 @@ pushd petcare-api
 mvn quarkus:dev
 ```
 
-//TODO: curl
-//TODo: package
-//TODO: deploy
+```
+quarkus build --native
+```
+
+```
+sam local start-api --template target/sam.jvm.yaml
+```
+
+```
+sam deploy -t target/sam.jvm.yaml -g
+```
+
+
 
 ## AWS CDK
 https://aws.amazon.com/cdk/
 
 ```
-mkdir petcare
-pushd petcare
+mkdir petcare-cdk
+pushd petcare-cdk
 ```
 
 ```
@@ -58,13 +68,27 @@ cdk bootstrap
 cdk deploy --all --require-approval never
 ```
 
-
-
 ```
-popd
+String stamp = ""+System.currentTimeMillis();
+Bucket bucket = Bucket.Builder.create(this, "petcare-bucket")
+    .bucketName("petcare"+stamp)
+    .publicReadAccess(true)
+    .build();
+
+ISource src = Source.asset("hello-cdk");
+
+List<ISource> sources = List.of(src);
+
+BucketDeployment deploy = BucketDeployment.Builder.create(this, "petcare-deployments")
+    .sources(sources)
+    .destinationBucket(bucket)
+    .destinationKeyPrefix("hello-cdk/")
+    .build();
 ```
 
 ## AWS SDK for Java
 https://aws.amazon.com/sdk-for-java/
 
-//TODO: Cloud Janitor
+
+## Cloud Janitor
+https://github.com/CaravanaCloud/cloud-janitor

@@ -31,6 +31,10 @@ tasks:
   
 
 ports:
+  - port: 3300
+    onOpen: ignore
+    visibility: public
+
   - port: 3306
     onOpen: ignore
     visibility: public
@@ -39,7 +43,15 @@ ports:
     onOpen: ignore
     visibility: public
 
+  - port: 5005
+    onOpen: ignore
+    visibility: public
+
   - port: 8080
+    onOpen: open-browser
+    visibility: public
+
+  - port: 8081
     onOpen: open-browser
     visibility: public
 
