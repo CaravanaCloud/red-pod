@@ -4,15 +4,20 @@ image:
 
 tasks:
   - name: docker compose
-    command: docker-compose -f .gitpod/docker-compose-gitpod.yml up -d --build
+    init: >
+      docker-compose -f .gitpod/docker-compose-gitpod.yml up -d --build &&
+      gp sync-done compose-up
   
   - name: mysql
+    init: gp sync-await compose-up
     command: docker logs -f mysql
 
   - name: mysql-client
+    init: gp sync-await compose-up
     command: mysql -h127.0.0.1 -P3306 -uroot -pMasterkey123 redpoddb
 
   - name: keycloak
+    init: gp sync-await compose-up
     command: docker logs -f keycloak
 
 ports:
