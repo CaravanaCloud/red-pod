@@ -15,7 +15,7 @@ tasks:
   - name: mysql-client
     init: gp sync-await compose-up
     command: >
-      gp await-port 3006 && 
+      gp await-port 3306 && 
       mysql -h127.0.0.1 -P3306 -uroot -pMasterkey123 redpoddb
 
   - name: keycloak
