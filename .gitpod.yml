@@ -15,7 +15,6 @@ tasks:
   - name: keycloak
     command: docker logs -f keycloak
 
-
 ports:
   - port: 3300
     onOpen: ignore
