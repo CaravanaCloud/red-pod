@@ -6,6 +6,7 @@ tasks:
   - name: docker compose
     init: >
       docker-compose -f .gitpod/docker-compose-gitpod.yml up -d --build &&
+      sleep 5 &&
       gp sync-done compose-up
   
   - name: mysql
