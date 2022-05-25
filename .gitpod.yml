@@ -17,7 +17,7 @@ tasks:
   - name: mysql-client
     command: > 
       gp await-port 3306 && 
-      sleep 10 &&
+      sleep 15 &&
       mysql -h127.0.0.1 -P3306 -uroot -pMasterkey123 redpoddb
 
   - name: keycloak
