@@ -3,25 +3,27 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: docker compose
-    init: >
+  - name: docker pull and up
+    init: docker-compose -f .gitpod/docker-compose-gitpod.yml pull 
+    command: >
       docker-compose -f .gitpod/docker-compose-gitpod.yml up -d --build && 
       gp sync-done compose-up
   
   - name: mysql
-    init: gp sync-await compose-up
-    command: docker logs -f mysql
+    command: >
+      gp sync-await compose-up && 
+      docker logs -f mysql
 
   - name: mysql-client
-    init: gp sync-await compose-up
-    command: >
+    command: > 
       gp await-port 3306 && 
       sleep 10 &&
       mysql -h127.0.0.1 -P3306 -uroot -pMasterkey123 redpoddb
 
   - name: keycloak
-    init: gp sync-await compose-up
-    command: docker logs -f keycloak
+    command: >
+      gp sync-await compose-up && 
+      docker logs -f keycloak
 
   - name: shell
     command: echo "this shell is yours to use"
@@ -44,7 +46,7 @@ ports:
     visibility: public
 
   - port: 8080
-    onOpen: open-browser
+    onOpen: ignore
     visibility: public
 
   - port: 8081
