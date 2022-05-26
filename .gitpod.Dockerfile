@@ -11,4 +11,5 @@ RUN bash -c "curl -Ls 'https://github.com/aws/aws-sam-cli/releases/latest/downlo
 RUN bash -c "sudo install-packages mysql-client"
 RUN bash -c "mkdir -p '/tmp/flyway' && wget -nv -O '/tmp/flyway/flyway-commandline-8.5.11-linux-x64.tar.gz' 'https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/8.5.11/flyway-commandline-8.5.11-linux-x64.tar.gz' && tar zxvf '/tmp/flyway/flyway-commandline-8.5.11-linux-x64.tar.gz' -C '/tmp/flyway/' && sudo mv '/tmp/flyway/flyway-8.5.11' '/usr/local/flyway' && sudo ln -s '/usr/local/flyway/flyway' '/usr/local/bin/flyway' && rm -rf '/tmp/flyway'"
 RUN bash -c "sudo install-packages direnv"
-RUN bash -c "pip3 install jupyter"
+RUN bash -c "pip install jupyter"
+RUN bash -c "pip install cloudformation-cli cloudformation-cli-java-plugin cloudformation-cli-go-plugin cloudformation-cli-python-plugin cloudformation-cli-typescript-plugin"

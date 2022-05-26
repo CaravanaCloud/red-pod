@@ -68,10 +68,10 @@ vscode:
     - vscjava.vscode-java-test
     - vscjava.vscode-maven
     - redhat.java
-    - redhat.fabric8-analytics
     - ms-azuretools.vscode-docker
     - ms-python.python
     - ms-toolsai.jupyter
     - esbenp.prettier-vscode
+#    - redhat.fabric8-analytics
 #    - GitHub.copilot
 
