@@ -25,6 +25,9 @@ tasks:
       gp sync-await compose-up && 
       docker logs -f keycloak
 
+  - name: jupyter
+    command: gp open jupyter/index.ipynb
+
   - name: shell
     command: echo "this shell is yours to use"
 
@@ -67,6 +70,8 @@ vscode:
     - redhat.java
     - redhat.fabric8-analytics
     - ms-azuretools.vscode-docker
+    - ms-python.python
+    - ms-toolsai.jupyter
     - esbenp.prettier-vscode
 #    - GitHub.copilot
 
