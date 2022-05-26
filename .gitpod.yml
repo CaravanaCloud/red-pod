@@ -26,7 +26,7 @@ tasks:
       docker logs -f keycloak
 
   - name: jupyter
-    command: gp open jupyter/index.ipynb
+    command: cd jupyter && gp open index.ipynb && jupyter notebook --no-browser
 
   - name: shell
     command: echo "this shell is yours to use"
