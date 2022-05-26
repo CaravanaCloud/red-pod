@@ -1,0 +1,12 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: red-pod
+projects:
+  - name: red-pod
+    source:
+      type: git
+      location: 'https://github.com/caravanacloud/red-pod.git'
+components:
+    - type: dockerimage
+      image: redhat/ubi9
+      command: ['cat', '/etc/redhat-release']
