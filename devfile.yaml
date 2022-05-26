@@ -9,4 +9,6 @@ projects:
 components:
     - type: dockerimage
       image: redhat/ubi9
+      memoryLimit: 512Mi
       command: ['cat', '/etc/redhat-release']
+      
