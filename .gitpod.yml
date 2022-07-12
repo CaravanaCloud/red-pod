@@ -3,9 +3,22 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: shell
+    command: echo "this shell is yours to use"
+
   - name: set environment variables
-    init: |
-      gp env foo=bar
+    before: |
+      gp env OCP_CLUSTER_NAME=rhnb-ocp-cluster
+      gp env OCP_WORKER_ARCH=amd64
+      gp env OCP_WORKER_REPLICAS=3
+      gp env OCP_MASTER_ARCH=amd64
+      gp env OCP_MASTER_REPLICAS=3
+      gp env OCP_CLUSTER_NET_CIDR=10.128.0.0/14
+      gp env OCP_CLUSTER_NET_HOST_PREFIX=23
+      gp env OCP_MACHINE_NET_CIDR=10.0.0.0/16
+      gp env OCP_SERVICE_NET_CIDR=172.30.0.0/16
+      gp env OCP_AWS_REGION=ap-northeast-1
+      eval $(gp env -e)
 
 
   - name: docker pull and up
@@ -32,9 +45,12 @@ tasks:
 
   - name: jupyter
     command: cd jupyter && gp open index.ipynb && jupyter notebook --no-browser
-
-  - name: shell
-    command: echo "this shell is yours to use"
+  
+  - name: temp ssh
+    command: |
+        rm -rf "/tmp/temp_ssh"
+        ssh-keygen -b "2048" -t "ed25519" -f "/tmp/temp_ssh" -q -N ""
+        ls -l "/tmp/temp_ssh"*
 
 ports:
   - port: 3300
