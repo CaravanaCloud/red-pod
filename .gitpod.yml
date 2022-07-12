@@ -3,6 +3,11 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: set environment variables
+    init: |
+      gp env foo=bar
+
+
   - name: docker pull and up
     init: docker-compose -f .gitpod/docker-compose-gitpod.yml pull 
     command: >
