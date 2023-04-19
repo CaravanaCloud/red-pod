@@ -1,1 +1,0 @@
-{"clusterName":"redpod-aws-sno","clusterID":"cfc675d0-f5a2-4869-9df7-6f32b363defd","infraID":"redpod-aws-sno-ng5sr","aws":{"region":"us-west-2","identifier":[{"kubernetes.io/cluster/redpod-aws-sno-ng5sr":"owned"},{"openshiftClusterID":"cfc675d0-f5a2-4869-9df7-6f32b363defd"}],"clusterDomain":"redpod-aws-sno.devcluster.openshift.com"}}

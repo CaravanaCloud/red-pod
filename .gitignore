@@ -26,3 +26,7 @@ cloud-janitor
 
 install-config/
 bin/
+
+install-config.yaml
+install-config.yml
+
