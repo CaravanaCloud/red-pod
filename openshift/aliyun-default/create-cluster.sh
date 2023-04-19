@@ -1,28 +1,33 @@
 #!/bin/bash
-set -ex
+set -e
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source '../../utils.sh'
 
-region="$ALI_REGION"
-dir="."
+expect_vars "ALI_REGION" "ALI_BASEDOMAIN"
 
-log_file="$dir/create_cluster.log.txt"
-log() {
-  timestamp=$(date '+%Y-%m-%d %H:%M:%S')
-  message="$*"
-  echo "${timestamp} ${region} ${message}" | tee -a "${log_file}"
-}
+CLUSTER_NAME=$(gen_cluster_name)
+CLUSTER_DIR="$DIR/$CLUSTER_NAME"
+RELEASE_IMAGE=$(openshift-install version | awk '/release image/ {print $3}')
 
-log "-- Cluster Config:"
-export RELEASE_IMAGE=$(./openshift-install version | awk '/release image/ {print $3}')
-export CLUSTER_NAME="redpod-aliyun-default"
-export ALI_REGION="${region}"
+log "Creating cluster"
+log "    name: ${CLUSTER_NAME}"
+log "  region: ${ALI_REGION}"
+log "     dir: ${CLUSTER_DIR}"
+log " version: $(openshift-install version)"
 
-log "  base domain: ${ALI_BASEDOMAIN}"
-log "  release image: ${RELEASE_IMAGE}"
-main() {
+mkdir -p "$CLUSTER_DIR"
 
-  envsubst < "./install-config.env.yaml" > "${dir}/install-config.yaml"
-  cp "${dir}/install-config.yaml" "${dir}/install-config.bak.yaml"
-  log "Generating install config"
+envsubst < "./install-config.env.yaml" > "${CLUSTER_DIR}/install-config.yaml"
+cp "${CLUSTER_DIR}/install-config.yaml" "${CLUSTER_DIR}/install-config.bak.yaml"
+log "Generated install config"
+
+exit 42;
+
+
+
+commented() {
+
+
 
   manifests_dir="${dir}/manifests"
   log "Creating manifests at [$manifests_dir]"
