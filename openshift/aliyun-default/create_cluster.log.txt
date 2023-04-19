@@ -1,5 +1,0 @@
-2023-04-18 13:27:56  -- Cluster Config:
-2023-04-18 13:27:56    base domain: 
-2023-04-18 13:27:56    release image: 
-2023-04-18 13:27:56  Generating install config
-2023-04-18 13:27:56  Creating manifests at [./manifests]
