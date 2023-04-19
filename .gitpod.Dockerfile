@@ -2,7 +2,7 @@
 FROM gitpod/workspace-full
 
 # System
-RUN bash -c "sudo install-packages direnv gettext"
+RUN bash -c "sudo install-packages direnv gettext mysql-client"
 
 # Java
 ARG JAVA_SDK="20-amzn"
