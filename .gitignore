@@ -31,3 +31,6 @@ install-config.yaml
 install-config.yml
 
 .envrc
+*.log.*
+*.bak.yaml
+install-config.yaml
