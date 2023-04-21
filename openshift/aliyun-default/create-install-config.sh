@@ -49,8 +49,8 @@ ccoctl alibabacloud create-ram-users \
     --output-dir=${CCOCTL_OUT}
 log "Processed credentials requests to [$CCOCTL_OUT]"
 
-cp "${ccotl_out}/manifests"/*credentials.yaml "${manifests_dir}"
-log "Copy manifests"
+cp "${CCOCTL_OUT}/manifests"/*credentials.yaml "${MANIFESTS_DIR}"
+log "Copied manifests"
 
 find $DIR
 log "done."

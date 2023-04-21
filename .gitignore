@@ -34,3 +34,6 @@ install-config.yml
 *.log.*
 *.bak.yaml
 install-config.yaml
+
+redpod--*
+
