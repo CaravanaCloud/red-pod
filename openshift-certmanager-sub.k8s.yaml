@@ -1,0 +1,16 @@
+# oc apply -f openshift-certmanager-sub.k8s.yaml
+# oc get pods -n openshift-operators
+
+
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: openshift-cert-manager-operator-sub
+  namespace: cert-manager-operator
+
+spec:
+  channel: latest 
+  installPlanApproval: Automatic
+  name: cert-manager-operator
+  source: redhat-operators 
+  sourceNamespace: openshift-marketplace 
