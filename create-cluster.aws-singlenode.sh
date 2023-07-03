@@ -27,10 +27,10 @@ openshift-install create cluster
 openshift-install wait-for install-complete
 
 mkdir -p "$HOME/.kube"
-ln -sf "/workspace/okd-pod/auth/kubeconfig" "$HOME/.kube/config"
-
+ln -sf "${GITPOD_REPO_ROOT}/auth/kubeconfig" "$HOME/.kube/config"
 
 oc cluster-info
+# oc get route -n openshift-gitops -o json | jq '.items '
 
 # some things to try
 # kubectl get nodes

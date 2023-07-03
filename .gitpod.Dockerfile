@@ -55,6 +55,9 @@ RUN bash -c "brew install operator-sdk"
 # Helm, Terraform, Terragrunt
 RUN bash -c "brew install helm terraform terragrunt"
 
+# KAN https://github.com/redhat-developer/kam
+
+
 # Java
 ARG JAVA_SDK="17.0.7-amzn"
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \

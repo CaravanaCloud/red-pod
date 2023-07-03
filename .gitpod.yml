@@ -3,8 +3,12 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: shell
-    command: echo "hello red-pod :)"
+  - name: Welcome
+    init: |
+      mkdir -p $HOME/.kube
+      ln -sf "/workspace/red-pod/auth/kubeconfig" "$HOME/.kube/config"
+      echo "Init okd-pod at $(date)"
+    command: echo "Hello red-pod :)"
 
 
 ports:

@@ -37,3 +37,5 @@ install-config.yaml
 
 redpod--*
 
+# OpenShift Installer
+.openshift_install_state.json
