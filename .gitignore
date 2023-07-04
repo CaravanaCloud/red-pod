@@ -39,3 +39,6 @@ redpod--*
 
 # OpenShift Installer
 .openshift_install_state.json
+
+# Stuff
+google-cloud*

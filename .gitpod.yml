@@ -5,8 +5,8 @@ image:
 tasks:
   - name: Welcome
     init: |
-      mkdir -p $HOME/.kube
-      ln -sf "/workspace/red-pod/auth/kubeconfig" "$HOME/.kube/config"
+      mkdir -p "$HOME/.kube"
+      ln -sf "$GITPOD_REPO_ROOT/auth/kubeconfig" "$HOME/.kube/config"
       echo "Init okd-pod at $(date)"
     command: echo "Hello red-pod :)"
 
