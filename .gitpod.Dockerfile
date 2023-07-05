@@ -75,17 +75,14 @@ RUN bash -c "curl -L ${ODO_URL} -o odo \
 
 
 # krew
-# RUN bash -c "set -x; cd $(mktemp -d) \
-#      && OS=$(uname | tr '[:upper:]' '[:lower:]') \
-#      && ARCH=$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/') \
-#      && KREW=krew-${OS}_${ARCH} \
-#      && curl -fsSLO https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz \
-#      && tar zxvf ${KREW}.tar.gz \
-#      && ./${KREW} install krew \
-#      && mkdir -p  /home/gitpod/bashrc.d/
-#      && echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> /home/gitpod/bashrc.d/krew.sh \
-#      && chmod +x /home/gitpod/bashrc.d/krew.sh
-#      "
+# RUN OS="$(uname | tr '[:upper:]' '[:lower:]')" && \
+#     ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" && \
+#     curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz" && \
+#     tar zxvf krew.tar.gz && \
+#     KREW=./krew-"${OS}_${ARCH}" && \
+#     "$KREW" install krew && \
+#     cp $HOME/.krew/bin/kubectl-krew /usr/local/bin/
+# 
 
 # Operator SDK
 RUN bash -c "brew install operator-sdk"
