@@ -45,9 +45,12 @@ google-cloud*
 
 # Terraform
 *.tfvars.json
-metadata.jsonterraform.*
+metadata.json
+terraform.*
 
 # K8S / OpenShift
 kubeadmin-*
 kubeconfig
 journal*
+
+metadata.json

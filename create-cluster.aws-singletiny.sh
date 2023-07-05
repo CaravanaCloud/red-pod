@@ -20,7 +20,7 @@ aws sts get-caller-identity
 envsubst < "install-config.aws-singletiny.env.yaml" > "install-config.yaml"
 cp "install-config.yaml" "install-config.bak.yaml"
 
-echo "WARNING: This will run 1 x t3a.2xlarge instances on your AWS account."
+echo "WARNING: This will run 1 x t3a.xlarge instances on your AWS account."
 sleep 5
 
 openshift-install create cluster

@@ -1,9 +1,3 @@
-# oc apply -f openshift-gitops-sub.k8s.yaml
-# oc get pods -n openshift-operators
-# oc get pods -n openshift-gitops
-# oc get route -n openshift-gitops -o json | jq '.items[] | select(.metadata.name | contains("openshift-gitops-server")).spec.host' -r
-# oc get secret openshift-gitops-cluster  -n openshift-gitops -o jsonpath="{.data.admin\.password}" | base64 -d
-
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -14,4 +8,4 @@ spec:
   installPlanApproval: Automatic
   name: openshift-gitops-operator 
   source: redhat-operators 
-  sourceNamespace: openshift-marketplace 
+  sourceNamespace: openshift-marketplace
