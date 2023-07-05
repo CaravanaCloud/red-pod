@@ -42,3 +42,12 @@ redpod--*
 
 # Stuff
 google-cloud*
+
+# Terraform
+*.tfvars.json
+metadata.jsonterraform.*
+
+# K8S / OpenShift
+kubeadmin-*
+kubeconfig
+journal*

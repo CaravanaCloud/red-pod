@@ -63,15 +63,15 @@ RUN bash -c "curl -L ${ODO_URL} -o odo \
     && sudo install -o root -g root -m 0755 odo /usr/local/bin/odo \
     "
 
-# OpenShift Local (crc)
-ARG CRC_URL="https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz"
-RUN bash -c "mkdir -p '/tmp/crc' \
-    && wget -nv -O '/tmp/crc/crc-linux-amd64.tar.xz' '${CRC_URL}' \
-    && tar xvf '/tmp/crc/crc-linux-amd64.tar.xz' -C '/tmp/crc' \
-    && find '/tmp/crc' \
-    && sudo mv /tmp/crc/crc-linux-*/crc '/usr/local/bin/' \
-    && rm '/tmp/crc/crc-linux-amd64.tar.xz' \
-    "
+# OpenShift Local (crc) - no virt flags
+# ARG CRC_URL="https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz"
+# RUN bash -c "mkdir -p '/tmp/crc' \
+#     && wget -nv -O '/tmp/crc/crc-linux-amd64.tar.xz' '${CRC_URL}' \
+#     && tar xvf '/tmp/crc/crc-linux-amd64.tar.xz' -C '/tmp/crc' \
+#     && find '/tmp/crc' \
+#     && sudo mv /tmp/crc/crc-linux-*/crc '/usr/local/bin/' \
+#     && rm '/tmp/crc/crc-linux-amd64.tar.xz' \
+#     "
 
 
 # krew

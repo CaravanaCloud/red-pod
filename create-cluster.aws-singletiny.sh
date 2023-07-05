@@ -11,16 +11,16 @@ check_variables() {
 }
 
 export AWS_REGION=${AWS_REGION:-"us-west-2"}
-export CLUSTER_NAME="okd-pod-$RANDOM"
+export CLUSTER_NAME=${CLUSTER_NAME:-"$(basename $GITPOD_REPO_ROOT)-$RANDOM"} 
 export OCP_BASE_DOMAIN=${OCP_BASE_DOMAIN:-"devcluster.openshift.com"}
 export SSH_KEY=$(cat $HOME/.ssh/id_rsa.pub)
 check_variables "AWS_REGION" "OCP_BASE_DOMAIN" "PULL_SECRET" "SSH_KEY"
 
 aws sts get-caller-identity
-envsubst < "install-config.aws-singlenode.env.yaml" > "install-config.yaml"
+envsubst < "install-config.aws-singletiny.env.yaml" > "install-config.yaml"
 cp "install-config.yaml" "install-config.bak.yaml"
 
-echo "WARNING: This will run 1 x ??? instances on your AWS account."
+echo "WARNING: This will run 1 x t3a.2xlarge instances on your AWS account."
 sleep 5
 
 openshift-install create cluster
