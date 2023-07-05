@@ -96,11 +96,11 @@ RUN bash -c "brew install helm terraform terragrunt"
 # KAN https://github.com/redhat-developer/kam
 
 # Tackle
-RUN bash -c 'git clone "https://github.com/kubernetes/test-infra" "/tmp/test-infra" \
-    && cd /tmp/test-infra/prow/cmd/tackle \
-    && go build -o tackle \
-    && sudo mv tackle /usr/sbin/tackle \
-    '
+# RUN bash -c 'git clone "https://github.com/kubernetes/test-infra" "/tmp/test-infra" \
+#    && cd /tmp/test-infra/prow/cmd/tackle \
+#    && go build -o tackle \
+#    && sudo mv tackle /usr/sbin/tackle \
+#    '
 
 # ArgoCD and Tekton
 RUN bash -c "brew install argocd"
