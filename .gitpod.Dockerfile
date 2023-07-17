@@ -139,6 +139,8 @@ RUN bash -c "curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/
     && sudo ln -s /workspace/red-pod/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud \
     "
 
+# Oracle Cloud CLI
+RUN bash -c "brew install oci-cli"
 
 # Done :)
 RUN bash -c "echo 'done.'"

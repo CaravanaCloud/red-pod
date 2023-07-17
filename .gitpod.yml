@@ -10,7 +10,6 @@ tasks:
       echo "Init okd-pod at $(date)"
     command: echo "Hello red-pod :)"
 
-
 ports:
   - port: 3300
     onOpen: ignore
@@ -52,3 +51,4 @@ vscode:
     - ms-python.python
     - ms-toolsai.jupyter
     - esbenp.prettier-vscode
+
