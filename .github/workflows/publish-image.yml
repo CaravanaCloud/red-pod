@@ -1,5 +1,5 @@
 # github action that builds image and pushes to docker hub
-name: Publish Image
+name: Publish Image to Docker Hub
 
 on:
   workflow_dispatch: {}
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  publish-image:
     runs-on: ubuntu-latest
 
     steps:
