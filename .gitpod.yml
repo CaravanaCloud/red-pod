@@ -6,7 +6,8 @@ tasks:
   - name: Welcome
     init: |
       mkdir -p "$HOME/.kube"
-      ln -sf "$GITPOD_REPO_ROOT/auth/kubeconfig" "$HOME/.kube/config"
+      openshift-install version
+      oc version --client
       echo "Init okd-pod at $(date)"
     command: echo "Hello red-pod :)"
 

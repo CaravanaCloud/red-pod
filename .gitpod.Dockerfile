@@ -14,7 +14,7 @@ RUN bash -c "cd /workspace/up && ./install_all.sh"
 RUN bash -c "up"
 
 # Java
-ARG JAVA_SDK="17.0.7-amzn"
+ARG JAVA_SDK="21.0.1-amzn"
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
     && sdk install java $JAVA_SDK \
     && sdk default java $JAVA_SDK \
@@ -27,7 +27,8 @@ RUN bash -c "mkdir -p '/tmp/openshift-installer' \
     && wget -nv -O '/tmp/openshift-installer/openshift-install-linux.tar.gz' 'https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-install-linux.tar.gz' \
     && tar zxvf '/tmp/openshift-installer/openshift-install-linux.tar.gz' -C '/tmp/openshift-installer' \
     && sudo mv  '/tmp/openshift-installer/openshift-install' '/usr/local/bin/' \
-    && rm '/tmp/openshift-installer/openshift-install-linux.tar.gz'\
+    && rm '/tmp/openshift-installer/openshift-install-linux.tar.gz' \
+    && openshift-install version \
     "
     
 # Credentials Operator CLI
