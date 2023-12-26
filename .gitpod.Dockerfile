@@ -2,16 +2,9 @@
 FROM gitpod/workspace-full
 
 # System
-RUN bash -c "sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3EFE0E0A2F2F60AA"
-RUN bash -c "echo 'deb http://ppa.launchpad.net/tektoncd/cli/ubuntu jammy main'|sudo tee /etc/apt/sources.list.d/tektoncd-ubuntu-cli.list"
 RUN bash -c "sudo install-packages direnv gettext mysql-client gnupg golang"
 RUN bash -c "sudo apt-get update"
 RUN bash -c "sudo pip install --upgrade pip"
-
-# UP
-RUN bash -c "git clone https://github.com/CaravanaCloud/up.git /workspace/up"
-RUN bash -c "cd /workspace/up && ./install_all.sh"
-RUN bash -c "up"
 
 # Java
 ARG JAVA_SDK="21.0.1-amzn"
