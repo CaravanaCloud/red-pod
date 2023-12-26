@@ -84,29 +84,13 @@ RUN bash -c "brew install operator-sdk"
 # Helm, Terraform, Terragrunt
 RUN bash -c "brew install helm terraform terragrunt"
 
-# KAN https://github.com/redhat-developer/kam
-
-# Tackle
-# RUN bash -c 'git clone "https://github.com/kubernetes/test-infra" "/tmp/test-infra" \
-#    && cd /tmp/test-infra/prow/cmd/tackle \
-#    && go build -o tackle \
-#    && sudo mv tackle /usr/sbin/tackle \
-#    '
-
-# ArgoCD and Tekton
-RUN bash -c "brew install argocd"
-RUN bash -c "sudo apt install -y tektoncd-cli \
-    && tkn version"
-
-# Kustomize
-RUN bash -c "curl -s 'https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh'  | bash"
-
-
 
 # AWS CLIs
-RUN bash -c "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip' && unzip awscliv2.zip \
+RUN bash -c "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip' \
+    && unzip awscliv2.zip \
     && sudo ./aws/install \
     && aws --version \
+    && rm awscliv2.zip \
     "
 
 RUN bash -c "npm install -g aws-cdk"
