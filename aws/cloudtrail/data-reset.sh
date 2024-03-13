@@ -1,0 +1,1 @@
+aws s3 sync s3://jufaerma-ap-northeast-1 ./.data

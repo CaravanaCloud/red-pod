@@ -27,6 +27,10 @@ RUN bash -c "chmod a+x $SDKMAN_DIR/bin/sdkman-init.sh \
     && sdk install quarkus \
     && sdk install maven \
     "
+# Python
+#update pip
+RUN bash -c "pip install --upgrade pip"
+RUN bash -c "pip install pandas jupyter"
 
 # Done :)
 # RUN bash -c "echo 'done.'"
